@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import * as actions from '../actions'; // make sure to look at route;
-// import styles from './../public/bootstrap.css';
+import styles from './../public/bootstrap.css';
 // import { Card, Nav } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 
