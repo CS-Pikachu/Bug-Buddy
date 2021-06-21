@@ -1,6 +1,7 @@
 const express = require('express');
-// const mongoose = require('mongoose');
-// saves session data on the client within a cookie (rather than session identifer and data in a DB)
+const app = express();
+const path = require('path');
+var cookieParser = require('cookie-parser');npm 
 // const cookieSession = require('cookie-session');
 // middleware to help with authentication
 // const passport = require('passport');
@@ -9,17 +10,12 @@ const express = require('express');
 // require('./models/user');
 // require('./services/passport');
 
-const path = require('path');
 // const keys = require('../config/keys');
 // const routes = require('./routes/routes');
 
-// mongoose.connect(keys.mongoURI, {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useUnifiedTopology: true,
-// });
+const port = 3000;
 
-const app = express();
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(
 //   cookieSession({
@@ -37,14 +33,18 @@ app.use(express.json());
 // routes(app);
 
 app.use(express.static('client/public'));
-app.listen(3000);
+// app.use(express.static(path.resolve(__dirname, '../client/public')));
 
 console.log('nodeENV is ', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   app.get('/', (req, res) => {
     return res
-      .status(200)
-      .sendFile(path.join(__dirname, '../client/public/index.html'));
+    .status(200)
+    .sendFile(path.join(__dirname, '../client/public/index.html'));
   });
 }
+
+app.listen(port, () => {
+  console.log(`We're now listening on port ${port}`);
+});

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
+    "start": "NODE_ENV=production nodemon server/server.js",
     "kill-bug": "npm run index.js",
-    "dev": "NODE_ENV=development webpack serve --open & NODE_ENV=development nodemon server/server.js"
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/CS-Pikachu/Bug-Buddy#readme",
   "dependencies": {
+    "concurrently": "^6.2.0",
+    "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "eslint": "^7.29.0",
     "express": "^4.17.1",
