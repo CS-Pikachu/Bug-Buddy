@@ -1,17 +1,15 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-var cookieParser = require('cookie-parser');npm 
+var cookieParser = require('cookie-parser');
 // const cookieSession = require('cookie-session');
 // middleware to help with authentication
 // const passport = require('passport');
-// we just need this to run, so we don't need a constant
-// models needed to be loaded before the passport file since passport utilizes models
-// require('./models/user');
 // require('./services/passport');
 
 // const keys = require('../config/keys');
-// const routes = require('./routes/routes');
+
+// TODO const routes = require('./router/api');
 
 const port = 3000;
 

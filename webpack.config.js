@@ -44,6 +44,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'client', 'public', 'index.html'),
+      favicon: path.resolve(__dirname, 'assets', 'img', 'png', 'favicon.png'),
+      title: 'Bug Buddy - Modern solution to track software bugs'
     }),
   ],
 };
