@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "kill-bug": "npm run index.js"
+    "kill-bug": "npm run index.js",
+    "dev": "NODE_ENV=development webpack serve --open & NODE_ENV=development nodemon server/server.js"
   },
   "repository": {
     "type": "git",
