@@ -1,0 +1,36 @@
+{
+  "name": "bug-buddy",
+  "version": "1.0.0",
+  "description": "Bug Logger in React, Redux, SQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "kill-bug": "npm run index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CS-Pikachu/Bug-Buddy.git"
+  },
+  "author": "Team Pikachu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CS-Pikachu/Bug-Buddy/issues"
+  },
+  "homepage": "https://github.com/CS-Pikachu/Bug-Buddy#readme",
+  "dependencies": {
+    "enzyme": "^3.11.0",
+    "eslint": "^7.29.0",
+    "express": "^4.17.1",
+    "jest": "^27.0.4",
+    "passport": "^0.4.1",
+    "pg": "^8.6.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "supertest": "^6.1.3",
+    "webpack": "^5.40.0"
+  }
+}
