@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "express-promise-router": "^4.1.0",
     "jest": "^27.0.4",
+    "loader": "^2.1.1",
     "passport": "^0.4.1",
     "pg": "^8.6.0",
     "react": "^17.0.2",
