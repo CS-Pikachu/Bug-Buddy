@@ -4,12 +4,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // import * as actions from '../actions'; // make sure to look at route;
 // import styles from './../public/bootstrap.css';
 // import { Card, Nav } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
+import styles from './../public/bootstrap.css';
 
 // import Header from './Header';
-import LandingContainer from './LandingContainer.js';
+// import LandingContainer from './LandingContainer.js';
 import DashBoard from './DashBoard.js';
-import NavBar from './NavBar.js';
+// import NavBar from './NavBar.js';
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +23,8 @@ class App extends Component {
     return (
       <Container>
         <div>
-          <NavBar />
-          <LandingContainer />
+          <Navbar />
+          <DashBoard />
         </div>
       </Container>
     );
