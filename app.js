@@ -1,5 +1,11 @@
 const express = require('express')
-const mountRoutes = require('./routes')
 const app = express()
-mountRoutes(app)
+const sequelize = require('./db/index')
+
+sequelize.sync().then(() => {
+    app.listen(3000);
+})
+
+
+
 

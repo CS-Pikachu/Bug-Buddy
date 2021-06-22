@@ -1,20 +1,63 @@
-const { Pool } = require('pg')
-const connectionString = 'postgres://hbaqcbwm:VAaIBVRxSZ1Tsymdihc9uCdPIVri6rR8@tai.db.elephantsql.com/hbaqcbwm'
-const pool = new Pool({
-    connectionString,
-    max: 3
-});
+const { Sequelize, DataTypes } = require('sequelize');
 
-module.exports = {
-    async query(text, params) {
-        const start = Date.now()
-        const res = await pool.query(text, params)
-        const duration = Date.now() - start
-        console.log("executed query", { text, duration, rows: res.rowCount })
-        return res
-    },
-    async getClient() {
-        const client = await pool.connect()
-        return client
-    }
+const sequelize = new Sequelize(
+    'postgres://fkhcjcfy:4muOB1ZJlD9JQ8KKa9scGtwCdw8H_v_S@tai.db.elephantsql.com/fkhcjcfy', {
+})
+const user = require('./models/User');
+const team = require('./models/Team');
+const bug = require('./models/Bug');
+const comment = require('./models/Comment');
+
+const User = user(sequelize, DataTypes)
+const Team = team(sequelize, DataTypes)
+const Bug = bug(sequelize, DataTypes)
+const Comment = comment(sequelize, DataTypes)
+
+const models = {
+    User,
+    Team,
+    Bug,
+    Comment,
 }
+
+Object.keys(models).forEach(key => {
+    if (models[key].associate) {
+        models[key].associate(models)
+    }
+})
+
+
+module.exports = sequelize;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// async function getOnePerson() {
+//     let person = await Person.findOne()
+//     console.log(person.get('name'))
+// }
+
+// getOnePerson()
+
+// async function createUser() {
+    // await User.sync({ force: true })
+//     const jane = await User.create({ name: "Jane" });
+//     console.log("Jane's auto-generated ID:", jane.id);
+
+// }
+// createUser()
