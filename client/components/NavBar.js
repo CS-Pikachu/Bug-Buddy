@@ -16,23 +16,6 @@ const NavBar = () => {
              <button type="button" size="lg" class="btn btn-outline-primary" href="#" variant="primary" >Login</button>
              <button type="button" size="lg" class="btn btn-outline-primary" href="#" variant="primary" >Get Started</button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                  </li>
-                </ul>
-              </div>
-
           </div>
       </nav>
     </div>
