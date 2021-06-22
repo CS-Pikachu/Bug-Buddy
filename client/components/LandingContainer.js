@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import styles from './../public/bootstrap.css';
-//import image from '../assets/bug-buddy.jpg';
+//import image from '../assets/bugbuddy.jpg';
 
 const LandingContainer = () => {
   return (
@@ -8,7 +7,7 @@ const LandingContainer = () => {
       <br></br>
       <p>Welcome!</p>
       <p>Bug-Buddy is your buddy for managing all your tickets!</p>      
-      <img src="https://www.bgosoftware.com/blog/wp-content/uploads/2016/03/iStock_000004435884_Large.jpg" alt="bug-buddy" width="650" height="349"></img>
+      <img src='https://github.com/CS-Pikachu/Bug-Buddy/blob/landing/client/assets/bugbuddy.jpg?raw=true' alt="bug-buddy" width="650" height="349"></img>
       <br></br>
       <br></br>
       <button type="button" size="lg" class="btn btn-outline-primary" href="#" variant="primary" >Get Started</button>

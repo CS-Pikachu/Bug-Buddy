@@ -8,7 +8,7 @@ const NavBar = () => {
       <nav class="navbar navbar-light bg-light">
           <div class="container-fluid">
              <a class="navbar-brand" href="#">Bug-Buddy</a>
-
+             {/* <img src="../assets/bblog.png" alt="bblog" width="30" height="30"> */}
              <a class="navbar-brand" href="#">Login</a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
