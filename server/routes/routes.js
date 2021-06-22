@@ -1,12 +1,6 @@
 const passport = require('passport');
 
-<<<<<<< HEAD
-// const Accounts = mongoose.model('accounts');
-
-// we need to have express invoke this in server.js, so we wrap it in an export function
-=======
 // Exported to be use everywhere
->>>>>>> dev
 module.exports = (app) => {
   app.get(
     '/auth/google',
@@ -32,8 +26,6 @@ module.exports = (app) => {
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
-<<<<<<< HEAD
-=======
 
   // ! Github's authentication. All ready to play ball!
 
@@ -59,5 +51,4 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
->>>>>>> dev
 };

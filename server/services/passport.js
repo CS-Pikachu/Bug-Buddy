@@ -1,10 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-<<<<<<< HEAD
-=======
 var GitHubStrategy = require('passport-github2').Strategy;
 var session = require('express-session');
->>>>>>> dev
 const keys = require('../../config/keys');
 
 // upon successfull login and cookie creation, we serialize the user to the session
@@ -12,21 +9,12 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
-<<<<<<< HEAD
-// // if there is a valid cookie session, passport will deserialize the user and based on thier googleID in our mongoDB
-// passport.deserializeUser((id, done) => {
-//   User.findById(id).then((user) => {
-//     done(null, user);
-//   });
-// });
-=======
 // if there is a valid cookie session, passport will deserialize the user and based on thier googleID
 passport.deserializeUser((id, done) => {
   User.findById(id).then((user) => {
     done(null, user);
   });
 });
->>>>>>> dev
 
 passport.use(
   // anyone that wants to authenticate with the string 'google' use this strategy
@@ -52,8 +40,6 @@ passport.use(
     }
   )
 );
-<<<<<<< HEAD
-=======
 
 // Use the GitHubStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
@@ -78,4 +64,3 @@ passport.use(
   });
 }
 ));
->>>>>>> dev
