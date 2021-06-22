@@ -3,9 +3,6 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 // middleware to help with authentication
 const passport = require('passport');
-// we just need this to run, so we don't need a constant
-// models needed to be loaded before the passport file since passport utilizes models
-// require('./models/user');
 require('./services/passport');
 
 const path = require('path');

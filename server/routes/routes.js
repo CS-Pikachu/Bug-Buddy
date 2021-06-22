@@ -1,7 +1,5 @@
 const passport = require('passport');
 
-// const Accounts = mongoose.model('accounts');
-
 // we need to have express invoke this in server.js, so we wrap it in an export function
 module.exports = (app) => {
   app.get(
