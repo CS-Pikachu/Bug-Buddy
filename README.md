@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/CS-Pikachu/Bug-Buddy">
-    <img src="assets/img/png/logo.png" alt="Logo" width="350" height="350">
+    <img src="client/assets/logo.png" alt="Logo" width="350" height="350">
   </a>
 
   <h3 align="center">README</h3><br />
@@ -116,7 +116,18 @@ Install the dpendencies:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Your app will run on your preferred browser on this URL:
+1. Update the file `config/keys.js` to include:
+
+   ```sh
+    googleClientID: '-- Your actual Google App ID --',
+    googleClientSecret: '-- Google Client Secret --',
+    GITHUB_CLIENT_ID: '-- GitHub Client ID --',
+    GITHUB_CLIENT_SECRET: '-- GitHub Client Secre --'
+   ```
+
+<br>
+
+2. Your app will run on your preferred browser on this URL:
 
    ```sh
    http://localhost:8080

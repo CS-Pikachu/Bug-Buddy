@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
+import low from '../../assets/low.png';
 
 class LowLabel extends Component {
   render() {
@@ -15,7 +16,7 @@ class LowLabel extends Component {
                 <Image
                   width="25"
                   height="25"
-                  src="https://github.com/CS-Pikachu/Bug-Buddy/blob/dashboard/client/assets/low.png?raw=true"
+                  src={low}
                 />
               </Col>
             </Row>
