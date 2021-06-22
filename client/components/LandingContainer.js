@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
 //import image from '../assets/bugbuddy.jpg';
+import Landing1 from "./Landing1"
+import Landing2 from "./Landing2"
 
 const LandingContainer = () => {
   return (
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-            <img src='https://github.com/CS-Pikachu/Bug-Buddy/blob/landing/client/assets/langding.png?raw=true' alt="landing" width="498" height="300"></img>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      <Landing1/>
+      <br></br>
+      <Landing2 />
+    </div>
   );
 };
 

@@ -23,6 +23,7 @@ class App extends Component {
       <Container>
         <div>
           <NavBar />
+          <br></br>
           <LandingContainer />
         </div>
       </Container>
