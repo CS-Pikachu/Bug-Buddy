@@ -29,11 +29,22 @@
     "express": "^4.17.1",
     "express-openid-connect": "^2.4.0",
     "express-promise-router": "^4.1.0",
+<<<<<<< HEAD
     "jest": "^27.0.4",
     "loader": "^2.1.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
+=======
+    "express-session": "^1.17.2",
+    "jest": "^27.0.4",
+    "loader": "^2.1.1",
+    "passport": "^0.4.1",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-oauth2": "^1.5.0",
+>>>>>>> dev
     "pg": "^8.6.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",

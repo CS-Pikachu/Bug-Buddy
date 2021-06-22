@@ -1,12 +1,18 @@
 const express = require('express');
+<<<<<<< HEAD
 
 require('./routes');
 
 const keys = require('./keys');
+=======
+require('../routes/routes');
+const keys = require('../../config/keys');
+>>>>>>> dev
 
 const authController = {};
   
 authController.validateUser = (req, res, next) => {
+<<<<<<< HEAD
     // try {
       // console.log('authentication succesful', req)
     // } catch (error) {
@@ -22,6 +28,11 @@ authController.validateUser = (req, res, next) => {
 
 
 
+=======
+  return next();
+};
+
+>>>>>>> dev
 authController.checkCookie = (req, res, next) => {
     console.log('Successful: access dashboard');
   return next();
