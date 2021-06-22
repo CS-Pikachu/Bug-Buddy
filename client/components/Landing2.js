@@ -6,7 +6,7 @@ const Landing2 = () => {
           <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
-              <img src='https://raw.githubusercontent.com/CS-Pikachu/Bug-Buddy/42c4b009b321cf32f84a166fe6d591533777db09/client/assets/statistics.svg' alt="landing" width="498" height="300"></img>
+              <img src='https://raw.githubusercontent.com/CS-Pikachu/Bug-Buddy/4672f5a8984e9c24a525b388194e01b8cb90d978/client/assets/programming.svg' alt="landing" width="498" height="300"></img>
               </div>
             </div>
           </div>
