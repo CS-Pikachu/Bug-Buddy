@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/CS-Pikachu/Bug-Buddy">
-    <img src="assets/img/png/logo.png" alt="Logo" width="350" height="350">
+    <img src="client/assets/logo.png" alt="Logo" width="350" height="350">
   </a>
 
   <h3 align="center">README</h3><br />
