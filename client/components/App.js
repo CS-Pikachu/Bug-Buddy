@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+// import { BrowserRouter, Route } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import * as actions from '../actions'; // make sure to look at route;
 // import { Card, Nav } from 'react-bootstrap';
-import styles from './../public/bootstrap.css';
 import { Container } from 'react-bootstrap';
+import styles from './../public/bootstrap.css';
 
 // import Header from './Header';
 import LandingContainer from './LandingContainer.js';
