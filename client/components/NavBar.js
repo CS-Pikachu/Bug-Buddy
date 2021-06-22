@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import styles from './../public/bootstrap.css';
+import bblog from '../assets/bblog.png';
 
 const NavBar = () => {
   return (
     <div>
       {/* <h1>NavBar Here</h1> */}
       {/* bg-light */}
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+      <nav className="navbar navbar-light bg-light">
+        <div className="container-fluid">
           <div className="nav_leftside">
             <a className="navbar-brand" href="#" style={{ color: 'blue' }}>
               Bug-Buddy
             </a>
             <img
-              src="https://github.com/CS-Pikachu/Bug-Buddy/blob/landing/client/assets/bblog.png?raw=true"
+              src={bblog}
               alt="bblog"
               width="30"
               height="30"

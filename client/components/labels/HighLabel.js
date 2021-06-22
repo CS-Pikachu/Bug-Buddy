@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
-
+import high from '../../assets/high.png';
 class HighLabel extends Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class HighLabel extends Component {
                 <Image
                   width="25"
                   height="25"
-                  src="https://raw.githubusercontent.com/CS-Pikachu/Bug-Buddy/09f1ab394cc9ade6bc734057dcf5b336795eba2f/client/assets/high.png"
+                  src={high}
                 />
               </Col>
             </Row>

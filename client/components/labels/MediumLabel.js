@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
+import medium from '../../assets/medium.png';
 
 class MediumLabel extends Component {
   render() {
@@ -15,7 +16,7 @@ class MediumLabel extends Component {
                 <Image
                   width="25"
                   height="25"
-                  src="https://github.com/CS-Pikachu/Bug-Buddy/blob/dashboard/client/assets/medium.png?raw=true"
+                  src={medium}
                 />
               </Col>
             </Row>

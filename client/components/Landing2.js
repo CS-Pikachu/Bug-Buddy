@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import programming from '../assets/programming.svg'
-
-console.log(programming);
+import programming from '../assets/programming.svg';
 
 const Landing2 = () => {
     return (
