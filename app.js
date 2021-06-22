@@ -1,5 +1,12 @@
 const express = require('express')
-const mountRoutes = require('./routes')
+import models from './db/models'
+// const mountRoutes = require('./routes')
 const app = express()
-mountRoutes(app)
+// mountRoutes(app)
+models.sequelize.sync().then(() => {
+    // app.listen(3000);
+})
+
+
+
 
