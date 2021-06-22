@@ -12,6 +12,7 @@ const path = require('path');
 const keys = require('../config/keys');
 const routes = require('./routes/routes');
 
+const port = 3000;
 
 const app = express();
 app.use(express.json());
@@ -30,8 +31,9 @@ app.use(passport.session());
 // calling all the routes with the express app
 routes(app);
 
+
+app.use(express.static(path.resolve(__dirname, '../client/assets/')));
 app.use(express.static('client/public'));
-app.listen(3000);
 
 console.log('nodeENV is ', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
@@ -42,3 +44,7 @@ if (process.env.NODE_ENV === 'production') {
       .sendFile(path.join(__dirname, '../client/public/index.html'));
   });
 }
+
+app.listen(port, () => {
+  console.log(`We're now listening on port ${port}`);
+});
