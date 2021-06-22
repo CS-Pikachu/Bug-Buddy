@@ -15,7 +15,7 @@ class HighLabel extends Component {
                 <Image
                   width="25"
                   height="25"
-                  src="https://image.flaticon.com/icons/png/512/3203/3203142.png"
+                  src="https://raw.githubusercontent.com/CS-Pikachu/Bug-Buddy/09f1ab394cc9ade6bc734057dcf5b336795eba2f/client/assets/high.png"
                 />
               </Col>
             </Row>

@@ -15,7 +15,7 @@ class LowLabel extends Component {
                 <Image
                   width="25"
                   height="25"
-                  src="https://image.flaticon.com/icons/png/128/3203/3203152.png"
+                  src="https://github.com/CS-Pikachu/Bug-Buddy/blob/dashboard/client/assets/low.png?raw=true"
                 />
               </Col>
             </Row>

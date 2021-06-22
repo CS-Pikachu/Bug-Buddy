@@ -15,7 +15,7 @@ class MediumLabel extends Component {
                 <Image
                   width="25"
                   height="25"
-                  src="https://image.flaticon.com/icons/png/128/3203/3203129.png"
+                  src="https://github.com/CS-Pikachu/Bug-Buddy/blob/dashboard/client/assets/medium.png?raw=true"
                 />
               </Col>
             </Row>
