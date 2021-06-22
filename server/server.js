@@ -43,7 +43,7 @@ app.get('/dashboard', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
 
-console.log('nodeENV is ', process.env.NODE_ENV);
+console.log('node-ENV is', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   app.get('/', (req, res) => {
