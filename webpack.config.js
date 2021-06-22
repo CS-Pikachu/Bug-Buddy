@@ -16,6 +16,16 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        exclude: /node_modules/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
+      },
+      {
         test: /\.css$/i,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
@@ -32,6 +42,7 @@ module.exports = {
   devServer: {
     contentBase: [
       path.resolve(__dirname, '/build'),
+      path.resolve(__dirname + '/client/assets'),
       path.resolve(__dirname + '/client/public'),
     ],
     historyApiFallback: true,
@@ -45,7 +56,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'client', 'public', 'index.html'),
-      favicon: path.resolve(__dirname, 'assets', 'img', 'png', 'favicon.png')
+      favicon: path.resolve(__dirname, 'client', 'assets', 'favicon.png')
     }),
   ],
 };
