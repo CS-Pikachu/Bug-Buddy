@@ -22,12 +22,13 @@ module.exports = {
       },
     ],
   },
+  // uncomment this line when ready for Production
   entry: entry,
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/',
-  },
+  }, 
   devServer: {
     contentBase: [
       path.resolve(__dirname, '/build'),
@@ -44,8 +45,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'client', 'public', 'index.html'),
-      favicon: path.resolve(__dirname, 'assets', 'img', 'png', 'favicon.png'),
-      title: 'Bug Buddy - Modern solution to track software bugs'
+      favicon: path.resolve(__dirname, 'assets', 'img', 'png', 'favicon.png')
     }),
   ],
 };
