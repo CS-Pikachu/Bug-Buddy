@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production nodemon server/server.js",
-    "chris": "nodemon --exec babel-node app.js",
     "kill-bug": "npm run index.js",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\""
   },
@@ -54,10 +53,7 @@
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
-    "babel-cli": "^6.26.0",
     "babel-loader": "^8.2.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^5.2.4",
     "html-webpack-plugin": "^5.3.1",
     "nodemon": "^2.0.7",
