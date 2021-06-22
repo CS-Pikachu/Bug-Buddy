@@ -87,6 +87,15 @@ body {
   outline: 0 !important;
 }
 
+.left_leftside{
+  float:left;
+  margin-left:2px;
+}
+.right_rightside{
+float:right;
+margin-right:2px;
+} 
+
 hr {
   box-sizing: content-box;
   height: 0;

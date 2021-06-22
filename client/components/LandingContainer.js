@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+//import image from '../assets/bugbuddy.jpg';
+import Landing1 from "./Landing1"
+import Landing2 from "./Landing2"
 
 const LandingContainer = () => {
   return (
     <div>
-      <h1>from landing</h1>
+      <Landing1/>
+      <br></br>
+      <Landing2 />
     </div>
   );
 };
 
 export default LandingContainer;
+
+

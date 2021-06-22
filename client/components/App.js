@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import * as actions from '../actions'; // make sure to look at route;
-// import styles from './../public/bootstrap.css';
 // import { Card, Nav } from 'react-bootstrap';
 import { Container, Navbar } from 'react-bootstrap';
 import styles from './../public/bootstrap.css';
@@ -23,8 +22,9 @@ class App extends Component {
     return (
       <Container>
         <div>
-          <Navbar />
-          <DashBoard />
+          <NavBar />
+          <br></br>
+          <LandingContainer />
         </div>
       </Container>
     );
