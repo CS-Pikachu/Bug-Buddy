@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // import * as actions from '../actions'; // make sure to look at route;
 // import styles from './../public/bootstrap.css';
 // import { Card, Nav } from 'react-bootstrap';
+import styles from './../public/bootstrap.css';
 import { Container } from 'react-bootstrap';
 
 // import Header from './Header';
