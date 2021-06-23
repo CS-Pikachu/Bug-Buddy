@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define('user', {
         username: {
             type: DataTypes.STRING,
@@ -7,12 +7,11 @@ export default (sequelize, DataTypes) => {
         password: DataTypes.STRING,
         isAdmin: DataTypes.BOOLEAN,
     });
-    User.associate = (models) => {
+    User.associate = function (models) {
         User.belongsToMany(models.Team, {
             through: 'member',
-            foreighKey: 'userId',
+            foreignKey: 'userId',
         })
-    };
-    console.log('userjs')
+    }
     return User;
-};
+}
