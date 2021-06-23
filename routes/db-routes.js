@@ -18,7 +18,7 @@ const router = new Router()
 // POST an user
 router.post('/user', async (req, res) => {
     try {
-    const user = await User.create({ username: "Michaela", password: "pass", isAdmin: false });
+    const user = await User.create({ username: req.body.username, password: req.body.password, isAdmin: req.body.isAdmin });
         console.log("User's auto-generated ID:", user.id);
         console.log("complete user", user);
 
