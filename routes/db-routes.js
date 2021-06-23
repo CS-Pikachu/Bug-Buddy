@@ -8,7 +8,7 @@ const Comment = sequelize.models.comment
 const router = new Router()
 // export our router to be mounted by the parent application
 // POST an user , updatedAt: Date.now()
-router.post('/user', async (req, res) => {
+router.post('/newUser', async (req, res) => {
 
     try {
         const user = await User.create({ username: req.body.username, password: req.body.password, isAdmin: req.body.isAdmin });
@@ -53,13 +53,14 @@ router.get('/bugs', async (req, res) => {
 
 // POST a new bug
 router.post('/newBug', async (req, res) => {
+    const fortnightAway = new Date(Date.now() + 12096e5)
     try {
         const newBug = await Bug.create({ 
-            tite: req.body.title,
-            // description: req.body.description, 
-            // priority: req.body.priority, 
-            // status: req.body.status,
-            // dueDate: Date.now()
+            title: req.body.title,
+            description: req.body.description, 
+            priority: req.body.priority, 
+            status: req.body.status,
+            dueDate: fortnightAway
          });
         console.log("Bug's auto-generated ID:", newBug.id);
         console.log("Bug logged in, ", newBug);
