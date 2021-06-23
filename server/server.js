@@ -69,7 +69,8 @@ function ensureAuthenticated(req, res, next) {
 }
 
 sequelize.sync().then(() => {
+  console.log('Connection to the Database was succesful.');
   app.listen(port, () => {
-    console.log(`We're now listening on port ${port}`);
+    console.log(`We're now listening on port ${port}.`);
   });
 })

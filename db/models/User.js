@@ -12,6 +12,8 @@ module.exports = function (sequelize, DataTypes) {
             through: 'member',
             foreignKey: 'userId',
         })
+        User.hasMany(models.Comment)
+        User.hasMany(models.Bug)
     }
     return User;
 }

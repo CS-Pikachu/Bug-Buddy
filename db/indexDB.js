@@ -29,4 +29,4 @@ Object.keys(models).forEach(key => {
     }
 })
 
-module.exports = sequelize;
+module.exports = sequelize, User, Team, Bug, Comment;
