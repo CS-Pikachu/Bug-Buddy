@@ -6,5 +6,6 @@ module.exports = {
   googleClientSecret: 'FtJr8gwYc8NVPpcTk3JvuTsh',
   GITHUB_CLIENT_ID: 'bfc4dae0e0ce6f7891d3',
   GITHUB_CLIENT_SECRET: '4b317d5e81945c37f63ca4bcfa4b30719e452e00',
+  POSTGRESS_KEY: 'postgres://fkhcjcfy:4muOB1ZJlD9JQ8KKa9scGtwCdw8H_v_S@tai.db.elephantsql.com/fkhcjcfy',
   cookieKey: 'lksjflasjfldsaj',
 };
