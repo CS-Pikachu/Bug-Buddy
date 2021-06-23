@@ -31,20 +31,20 @@ app.use(passport.session());
 
 // calling all the routes with the express app
 routes(app);
-
 app.use('/api', router);
 
 app.use(express.static(path.resolve(__dirname, '../client/assets/')));
 app.use(express.static('client/public'));
 
-app.get('/auth', authController.checkCookie, function(req, res){
-  res.status(200).redirect('/dashboard')
+app.get('/auth', authController.checkCookie, function (req, res) {
+  console.log('auth route was hit');
+  res.status(200).redirect('/dashboard');
 });
 
-
-app.get('/dashboard', ensureAuthenticated, function(req, res){
-  res.render('account', { user: req.user });
-});
+// app.get('/dashboard', ensureAuthenticated, function (req, res) {
+//   console.log('req is', req);
+//   res.render('account', { user: req.user });
+// });
 
 // console.log('node-ENV is', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
@@ -62,8 +62,10 @@ if (process.env.NODE_ENV === 'production') {
   the request will proceed.  Otherwise, the user will be redirected to the
   login page. */
 function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/')
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
 }
 
 sequelize.sync().then(() => {

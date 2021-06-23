@@ -34,7 +34,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/',
-  }, 
+  },
   devServer: {
     contentBase: [
       path.resolve(__dirname, '/build'),
@@ -45,6 +45,8 @@ module.exports = {
     proxy: {
       '/auth/*': 'http://localhost:3000',
       '/api/*': 'http://localhost:3000',
+      '/auth/google/callback': 'http://localhost:3000',
+      '/api/current_user': 'http://localhost:3000',
     },
     hot: true,
   },
@@ -52,7 +54,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'client', 'public', 'index.html'),
-      favicon: path.resolve(__dirname, 'client', 'assets', 'favicon.png')
+      favicon: path.resolve(__dirname, 'client', 'assets', 'favicon.png'),
     }),
   ],
 };

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import * as actions from '../actions'; // make sure to look at route;
-// import { Card, Nav } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import * as actions from '../actions'; // make sure to look at route;
+
 import { Container } from 'react-bootstrap';
 import styles from './../public/bootstrap.css';
 
@@ -17,7 +17,11 @@ class App extends Component {
     this.state = {};
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log('app mounted');
+    this.props.fetchUser();
+    console.log(this.props);
+  }
   render() {
     return (
       <BrowserRouter>
@@ -35,4 +39,4 @@ class App extends Component {
 
 // first arg is map state to props, second is action creaters
 // all these actions are assigned to App as props
-export default App;
+export default connect(null, actions)(App);
