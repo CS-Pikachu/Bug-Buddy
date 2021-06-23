@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
-import high from '../../assets/high-priority.png';
+import high from '../../assets/high.png';
+
 class HighLabel extends Component {
   render() {
     return (
@@ -12,7 +13,7 @@ class HighLabel extends Component {
                 <Card.Title className="left-label">High Priority</Card.Title>
               </Col>
               <Col className="right-label">
-                <Image width="25" height="25" src={high} />
+                <Image width="35" height="35" src={high} />
               </Col>
             </Row>
           </Card.Body>
