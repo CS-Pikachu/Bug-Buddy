@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import * as actions from '../actions'; // make sure to look at route;
 // import { Card, Nav } from 'react-bootstrap';
@@ -20,14 +20,15 @@ class App extends Component {
   componentDidMount() {}
   render() {
     return (
-      <Container>
-        <div>
-          <NavBar />
-          <br></br>
-          <LandingContainer />
-          {/* <DashBoard /> */}
-        </div>
-      </Container>
+      <BrowserRouter>
+        <Container>
+          <div>
+            <NavBar />
+            <Route exact path="/dashboard" component={DashBoard}></Route>
+            <Route exact path="/" component={LandingContainer}></Route>
+          </div>
+        </Container>
+      </BrowserRouter>
     );
   }
 }
