@@ -3,7 +3,6 @@ module.exports = function (sequelize, DataTypes) {
         description: DataTypes.STRING,
         priority: DataTypes.STRING,
         status: DataTypes.STRING,
-        priority: DataTypes.STRING,
     });
     Bug.associate = function (models) {
         Bug.belongsTo(models.Team, {
