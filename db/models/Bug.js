@@ -7,12 +7,9 @@ module.exports = function (sequelize, DataTypes) {
         dueDate: DataTypes.DATE,
     });
     Bug.associate = function (models) {
-        Bug.belongsTo(models.Team, {
-            foreignKey: 'teamId',
-        })
-        Bug.belongsTo(models.User, {
-            foreignKey: 'userId',
-        })
+        Bug.belongsTo(models.Team)
+        Bug.belongsTo(models.User)
+        Bug.hasMany(models.Comment)
     }
     return Bug;
 }

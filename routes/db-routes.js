@@ -55,13 +55,13 @@ router.get('/bugs', async (req, res) => {
 router.post('/newBug', async (req, res) => {
     const fortnightAway = new Date(Date.now() + 12096e5)
     try {
-        const newBug = await Bug.create({ 
+        const newBug = await Bug.create({
             title: req.body.title,
-            description: req.body.description, 
-            priority: req.body.priority, 
+            description: req.body.description,
+            priority: req.body.priority,
             status: req.body.status,
             dueDate: fortnightAway
-         });
+        });
         console.log("Bug's auto-generated ID:", newBug.id);
         console.log("Bug logged in, ", newBug);
 
@@ -75,15 +75,15 @@ router.post('/newBug', async (req, res) => {
 
 // DELETE a bug
 router.get('/deleteBug/:id', async (req, res) => {
-  console.log('this is supposed to be req.body', req.params.id);
-  const bugId = req.params.id;
-  console.log(bugId);
+    console.log('this is supposed to be req.body', req.params.id);
+    const bugId = req.params.id;
+    console.log(bugId);
     try {
         const deletedBug = await Bug.destroy({
             where: {
                 id: bugId
             }
-          });
+        });
         console.log("Bug deleted, ", deletedBug);
 
         res.locals.deletedBug = deletedBug;
@@ -189,5 +189,26 @@ router.post('/updateCom/:id', async (req, res) => {
         res.status(400).json('We could not update this Comment, sorry!', error);
     }
 });
+
+
+// const john = {
+//     username: "joan",
+//     password: "secret",
+//     isAdmin: true,
+// }
+
+// // testing
+// router.get('/testing', async (req, res) => {
+//     const user = await User.create(john)
+//     const userId = user.id
+//     const comment = await user.createComment({ userId, text: "a comment" })
+//     const us = await User.findAll()
+//     const message = await user.getComments()
+//     console.log(us)
+//     console.log(comment)
+//     console.log(message)
+//     // console.log(Team)
+// });
+
 
 module.exports = router

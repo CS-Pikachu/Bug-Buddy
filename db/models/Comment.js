@@ -3,12 +3,8 @@ module.exports = function (sequelize, DataTypes) {
         text: DataTypes.STRING,
     });
     Comment.associate = function (models) {
-        Comment.belongsTo(models.Bug, {
-            foreignKey: 'bugId',
-        })
-        Comment.belongsTo(models.User, {
-            foreignKey: 'userId',
-        })
+        Comment.belongsTo(models.Bug)
+        Comment.belongsTo(models.User)
     }
     return Comment;
 }
