@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './../public/bootstrap.css';
 import bblog from '../assets/bblog.png';
+import { Button } from 'react-bootstrap';
 
 const NavBar = () => {
   return (
@@ -10,34 +11,31 @@ const NavBar = () => {
       <nav className="navbar navbar-light bg-light">
         <div className="container-fluid">
           <div className="nav_leftside">
-            <a className="navbar-brand" href="#" style={{ color: 'blue' }}>
+            <a
+              className="navbar-brand"
+              href="/auth/google"
+              style={{ color: 'blue' }}
+            >
               Bug-Buddy
             </a>
-            <img
-              src={bblog}
-              alt="bblog"
-              width="30"
-              height="30"
-            ></img>
+            <img src={bblog} alt="bblog" width="30" height="30"></img>
           </div>
 
           <div className="nav_rightside">
-            <button
-              type="button"
-              size="lg"
-              className="btn btn-outline-Primary mx-2"
-              href="#"
+            <Button
+              className="mx-2"
+              href="/auth/google"
+              variant="outline-primary"
             >
               Login
-            </button>
-            <button
-              type="button"
-              size="lg"
-              className="btn btn-outline-Primary mx-2"
-              href="#"
+            </Button>
+            <Button
+              className="mx-2"
+              href="/auth/google"
+              variant="outline-primary"
             >
               Get Started
-            </button>
+            </Button>
           </div>
         </div>
       </nav>

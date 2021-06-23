@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
-import medium from '../../assets/medium.png';
+import medium from '../../assets/med-priority.png';
 
 class MediumLabel extends Component {
   render() {
@@ -13,11 +13,7 @@ class MediumLabel extends Component {
                 <Card.Title className="left-label">Medium Priority</Card.Title>
               </Col>
               <Col className="right-label">
-                <Image
-                  width="25"
-                  height="25"
-                  src={medium}
-                />
+                <Image width="25" height="25" src={medium} />
               </Col>
             </Row>
           </Card.Body>
