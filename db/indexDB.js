@@ -3,8 +3,9 @@ const keys = require('../config/keys');
 
 const sequelize = new Sequelize(
     keys.POSTGRESS_KEY, {
-    // logging: true,
+    logging: false,
 })
+
 const user = require('./models/User');
 const team = require('./models/Team');
 const bug = require('./models/Bug');
@@ -28,38 +29,4 @@ Object.keys(models).forEach(key => {
     }
 })
 
-
 module.exports = sequelize;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async function getOnePerson() {
-//     let person = await Person.findOne()
-//     console.log(person.get('name'))
-// }
-
-// getOnePerson()
-
-// async function createUser() {
-    // await User.sync({ force: true })
-//     const jane = await User.create({ name: "Jane" });
-//     console.log("Jane's auto-generated ID:", jane.id);
-
-// }
-// createUser()

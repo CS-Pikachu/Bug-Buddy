@@ -11,6 +11,7 @@ const sequelize = require('../db/indexDB');
 const path = require('path');
 const keys = require('../config/keys');
 const routes = require('./routes/routes');
+const router = require('../routes/db-routes');
 
 const port = 3000;
 
@@ -31,6 +32,7 @@ app.use(passport.session());
 // calling all the routes with the express app
 routes(app);
 
+app.use('/api', router);
 
 app.use(express.static(path.resolve(__dirname, '../client/assets/')));
 app.use(express.static('client/public'));
