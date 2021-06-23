@@ -6,10 +6,12 @@ const authController = require('./auth/authController');
 const passport = require('passport');
 require('./services/passport');
 require('passport-github2');
+const sequelize = require('../db/indexDB');
 
 const path = require('path');
 const keys = require('../config/keys');
 const routes = require('./routes/routes');
+const router = require('../routes/db-routes');
 
 const port = 3000;
 
@@ -30,6 +32,7 @@ app.use(passport.session());
 // calling all the routes with the express app
 routes(app);
 
+app.use('/api', router);
 
 app.use(express.static(path.resolve(__dirname, '../client/assets/')));
 app.use(express.static('client/public'));
@@ -43,7 +46,7 @@ app.get('/dashboard', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
 
-console.log('node-ENV is', process.env.NODE_ENV);
+// console.log('node-ENV is', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   app.get('/', (req, res) => {
@@ -63,6 +66,8 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
-app.listen(port, () => {
-  console.log(`We're now listening on port ${port}`);
-});
+sequelize.sync().then(() => {
+  app.listen(port, () => {
+    console.log(`We're now listening on port ${port}`);
+  });
+})
