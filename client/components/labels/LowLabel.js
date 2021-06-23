@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
-import low from '../../assets/low.png';
+import low from '../../assets/low-priority.png';
 
 class LowLabel extends Component {
   render() {
@@ -13,11 +13,7 @@ class LowLabel extends Component {
                 <Card.Title className="left-label">Low Priority</Card.Title>
               </Col>
               <Col className="right-label">
-                <Image
-                  width="25"
-                  height="25"
-                  src={low}
-                />
+                <Image width="25" height="25" src={low} />
               </Col>
             </Row>
           </Card.Body>
