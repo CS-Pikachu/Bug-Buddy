@@ -7,7 +7,7 @@ const Comment = sequelize.models.comment
 
 const router = new Router()
 // export our router to be mounted by the parent application
-// POST an user
+// POST an user , updatedAt: Date.now()
 router.post('/user', async (req, res) => {
 
     try {
@@ -54,7 +54,13 @@ router.get('/bugs', async (req, res) => {
 // POST a new bug
 router.post('/newBug', async (req, res) => {
     try {
-        const newBug = await Bug.create({ description: "SQL is not fun!!", priority: "low", status: "In review", });
+        const newBug = await Bug.create({ 
+            tite: req.body.title,
+            // description: req.body.description, 
+            // priority: req.body.priority, 
+            // status: req.body.status,
+            // dueDate: Date.now()
+         });
         console.log("Bug's auto-generated ID:", newBug.id);
         console.log("Bug logged in, ", newBug);
 
@@ -62,13 +68,49 @@ router.post('/newBug', async (req, res) => {
         res.status(200).json(newBug);
 
     } catch (error) {
-        res.status(400).json('We could not log this Bug, sorry!');
+        res.status(400).json('We could not log this Bug, sorry!', error);
     }
 });
 
-// TODO UPDATE method
-router.put('/api/update/:id', async (req, res) => {
+// DELETE a bug
+router.get('/deleteBug/:id', async (req, res) => {
+  console.log('this is supposed to be req.body', req.params.id);
+  const bugId = req.params.id;
+  console.log(bugId);
+    try {
+        const deletedBug = await Bug.destroy({
+            where: {
+                id: bugId
+            }
+          });
+        console.log("Bug deleted, ", deletedBug);
 
+        res.locals.deletedBug = deletedBug;
+        res.status(200).json(deletedBug);
+
+    } catch (error) {
+        res.status(400).json('We could not delete this Bug, sorry!', error);
+    }
+});
+
+// UPDATE method for bugs
+router.post('/updateBug/:id', async (req, res) => {
+    const bugId = req.params.id;
+    try {
+        const updatedBug = await Bug.findOne({ where: { id: bugId } });
+        console.log("Bug has been found, ", updatedBug);
+
+        updatedBug.teamId = req.body.teamId;
+        updatedBug.userId = req.body.userId;
+        updatedBug.updatedAt = Date.now();
+
+        await updatedBug.save();
+        res.locals.updatedBug = updatedBug;
+        res.status(200).json(updatedBug);
+
+    } catch (error) {
+        res.status(400).json('We could not update this Bug, sorry!', error);
+    }
 });
 
 // GET all teams
@@ -104,7 +146,7 @@ router.get('/comments', async (req, res) => {
     try {
         const comments = await Comment.findAll();
         console.log(comments.every(comments => comments instanceof Comment)); // true
-        console.log("All Teams:", JSON.stringify(comment, null, 2));
+        console.log("All Teams:", JSON.stringify(comments, null, 2));
         res.locals.getComments = comments;
         res.status(200).json(comments);
     } catch (error) {
@@ -127,5 +169,24 @@ router.post('/newComment', async (req, res) => {
     }
 });
 
+// UPDATE a Comment - 
+router.post('/updateCom/:id', async (req, res) => {
+    const ComId = req.params.id;
+    try {
+        const updatedComment = await Comment.findOne({ where: { id: ComId } });
+        console.log("Found the comment, ", updatedComment);
+
+        updatedComment.bugId = req.body.bugId;
+        updatedComment.userId = req.body.userId;
+        updatedComment.updatedAt = Date.now();
+
+        await updatedComment.save();
+        res.locals.updatedComment = updatedComment;
+        res.status(200).json(updatedComment);
+
+    } catch (error) {
+        res.status(400).json('We could not update this Comment, sorry!', error);
+    }
+});
 
 module.exports = router
