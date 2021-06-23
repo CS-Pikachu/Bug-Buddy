@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize(
     'postgres://fkhcjcfy:4muOB1ZJlD9JQ8KKa9scGtwCdw8H_v_S@tai.db.elephantsql.com/fkhcjcfy', {
+    // logging: true,
 })
 const user = require('./models/User');
 const team = require('./models/Team');

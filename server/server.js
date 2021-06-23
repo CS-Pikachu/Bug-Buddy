@@ -6,6 +6,7 @@ const authController = require('./auth/authController');
 const passport = require('passport');
 require('./services/passport');
 require('passport-github2');
+const sequelize = require('../db/indexDB');
 
 const path = require('path');
 const keys = require('../config/keys');
@@ -63,6 +64,8 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
-app.listen(port, () => {
-  console.log(`We're now listening on port ${port}`);
-});
+sequelize.sync().then(() => {
+  app.listen(port, () => {
+    console.log(`We're now listening on port ${port}`);
+  });
+})
