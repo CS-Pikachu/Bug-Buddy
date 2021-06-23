@@ -10,9 +10,7 @@ module.exports = function (sequelize, DataTypes) {
             through: 'member',
             foreignKey: 'teamId',
         })
-        Team.belongsTo(models.User, {
-            foreignKey: 'owner',
-        })
+        Team.belongsTo(models.User)
     }
     return Team;
 }
