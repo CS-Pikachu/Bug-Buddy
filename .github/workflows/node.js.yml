@@ -48,6 +48,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: bug-buddy
         environment_name: Bugbuddy-env
-        version_label: 002
+        version_label: 003
         region: eu-west-1
         deployment_package: deploy.zip
