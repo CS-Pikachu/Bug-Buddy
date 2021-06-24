@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
+
 const PostBug = (auth) => {
     console.log('PostBug.js: props are', auth);
 
@@ -12,13 +13,13 @@ const PostBug = (auth) => {
             <Form.Group controlId="formGridAddress1">
             <Form.Label>Title</Form.Label>
             <Form.Control placeholder="Title ..." />
-        </Form.Group>
+            </Form.Group>
       
         <Form>
-         <Form.Group controlId="formBasicEmail">
-           <Form.Label>Description</Form.Label>
-              <Form.Control placeholder="Enter deatils ..." />
-            </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Description</Form.Label>
+              <Form.Control placeholder="Enter details ..." />
+        </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Due Date</Form.Label>

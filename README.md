@@ -65,8 +65,7 @@ A bug logger for your Developer Team.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Peach QE is the first Relay visualizer to handle all your GraphQL queries under one roof, directly on your desktop.
-Upload pre-written queries, live-edit the queries you want to explore, edit variable inputs, and even handle as many databases as required.
+About the project ...
 
 <br />
 
