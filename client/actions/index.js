@@ -2,6 +2,7 @@ import { FETCH_USER } from './types';
 import { FETCH_BUGS } from './types';
 import { FETCH_COMMENTS } from './types';
 import { FETCH_ALL_USERS } from './types';
+import { UPDATE_BUG } from './types';
 
 export const fetchUser = () => {
   return function (dispatch) {
@@ -47,6 +48,25 @@ export const fetchAllUsers = () => {
       .then((res) => {
         console.log('fetchAllUsers Action: got users of ', res);
         dispatch({ type: FETCH_ALL_USERS, payload: res });
+      });
+  };
+};
+
+export const updateBug = (bug) => {
+  const body = { status: bug.status };
+  return function (dispatch) {
+    console.log('updateBug Action: inside of update Bug Action');
+    fetch(`/api/bugs/${bug.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('updateBug Action: got updated bug of ', res);
+        dispatch({ type: UPDATE_BUG, payload: res });
       });
   };
 };
