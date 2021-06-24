@@ -11,15 +11,10 @@ const userControllers = {
         password: req.body.password,
         isAdmin: req.body.isAdmin
       });
-
-      // console.log("User's auto-generated ID:", user.id);
-      // console.log("complete user", user);
-
       res.locals.createdUser = user;
       return next()
 
     } catch (error) {
-      // console.log(err);
       return next(err);
     }
   },
@@ -28,12 +23,9 @@ const userControllers = {
   async getAllUsers(req, res, next) {
     try {
       const users = await User.findAll();
-      // console.log(users.every(user => user instanceof User)); // true
-      // console.log("All users:", JSON.stringify(users, null, 2));
       res.locals.getUsers = users;
       return next()
     } catch (error) {
-      // console.log(err);
       return next(err);
     }
   },
@@ -43,7 +35,6 @@ const userControllers = {
     const userId = req.params.id;
     try {
       const updatedUser = await User.findOne({ where: { id: userId } });
-      // console.log("User has been found, ", updatedUser);
 
       if (req.body.username) updatedUser.username = req.body.username;
       if (req.body.password) updatedUser.password = req.body.password;
@@ -55,7 +46,6 @@ const userControllers = {
       return next()
 
     } catch (error) {
-      // console.log(err);
       return next(error);
     }
   },
@@ -63,20 +53,17 @@ const userControllers = {
   // DELETE a user
   async deleteUser(req, res, next) {
     const userId = req.params.id;
-    // console.log(userId);
     try {
       const deletedUser = await User.destroy({
         where: {
           id: userId
         }
       });
-      // console.log("Bug deleted, ", deletedUser);
 
       res.locals.deletedUser = deletedUser;
       return next()
 
     } catch (error) {
-      // console.log(err);
       return next(err);
     }
   },

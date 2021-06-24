@@ -7,12 +7,9 @@ const commentControllers = {
   async getAllComments(req, res, next) {
     try {
       const comments = await Comment.findAll();
-      // console.log(comments.every(comments => comments instanceof Comment)); // true
-      // console.log("All Teams:", JSON.stringify(comments, null, 2));
       res.locals.getComments = comments;
       return next();
     } catch (error) {
-      // console.log(error);
       return next(error);
     }
   },
@@ -21,14 +18,11 @@ const commentControllers = {
   async createComment(req, res, next) {
     try {
       const newComment = await Comment.create({ text: req.body.text });
-      // console.log("Comment's auto-generated ID:", newComment.id);
-      // console.log("Comment logged in, ", newComment);
 
       res.locals.newComment = newComment;
       return next()
 
     } catch (error) {
-      // console.log(error);
       return next(error);
     }
   },
@@ -38,7 +32,6 @@ const commentControllers = {
     const ComId = req.params.id;
     try {
       const updatedComment = await Comment.findOne({ where: { id: ComId } });
-      // console.log("Found the comment, ", updatedComment);
 
       if (req.body.text) updatedComment.text = req.body.text;
       if (req.body.bugId) updatedComment.bugId = req.body.bugId;
@@ -50,7 +43,6 @@ const commentControllers = {
       return next()
 
     } catch (error) {
-      // console.log(error);
       return next(error);
     }
   },

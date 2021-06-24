@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 // saves session data on the client within a cookie (rather than session identifer and data in a DB)
 const cookieSession = require('cookie-session');
 // middleware to help with authentication
@@ -46,7 +47,7 @@ app.get('/auth', authController.checkCookie, function (req, res) {
 //   res.render('account', { user: req.user });
 // });
 
-// console.log('node-ENV is', process.env.NODE_ENV);
+console.log('node-ENV is', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   app.get('/', (req, res) => {
