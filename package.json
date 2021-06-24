@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose",
     "build": "node server/server.js build",
-    "build:deploy": "cross-env NODE_ENV=production webpack"
+    "build:deploy": "cross-env NODE_ENV=production webpack",
     "kill-bug": "npm run index.js",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\""
   },
