@@ -4672,6 +4672,10 @@ input[type='button'].btn-block {
   margin-right: 2px;
 }
 
+.add-button {
+  color: #eef1f7;
+}
+
 .left-side-button {
   float: left;
   margin-top: 8px;
