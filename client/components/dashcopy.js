@@ -13,31 +13,28 @@ const DashBoard = (bugs) => {
   const bugsApiCall = [
     {
       id: 3,
-      title: 'Home route',
-      description:
-        'You can still access home even if you are not logged in. This needs to rerouted to landing.',
+      title: 'High Card Title',
+      description: 'High Card example',
       priority: 'high',
-      status: 'open',
+      status: 'closed',
       createdAt: '2021-06-23T03:04:41.921Z',
       updatedAt: '2021-06-23T03:04:41.921Z',
-      dueDate: '2021-06-22T03:04:41.921Z',
+      dueDate: '2021-06-29T03:04:41.921Z',
     },
     {
       id: 4,
-      title: 'Update sql schema to include team id',
-      description:
-        'Add team id to schema so we do not have to iterate over all bugs',
+      title: 'Med Card Title',
+      description: 'Medium Card Example',
       priority: 'medium',
-      status: 'open',
+      status: 'closed',
       createdAt: '2021-06-23T03:04:41.921Z',
       updatedAt: '2021-06-23T03:04:41.921Z',
-      dueDate: '2021-06-25T03:04:41.921Z',
+      dueDate: '2021-06-29T03:04:41.921Z',
     },
     {
       id: 6,
-      title: 'Change font size in headers',
-      description:
-        'Font size in headers is too big, make it smaller and potentially add shadows',
+      title: 'Low Card Title',
+      description: 'Low Card Example',
       priority: 'low',
       status: 'open',
       createdAt: '2021-06-21T03:04:41.921Z',
@@ -46,8 +43,8 @@ const DashBoard = (bugs) => {
     },
     {
       id: 7,
-      title: 'Add more rounded edges',
-      description: 'Round out the edges on all the components',
+      title: 'Another low Card Title',
+      description: 'Another Card Example',
       priority: 'low',
       status: 'open',
       createdAt: '2021-06-21T03:04:41.921Z',
@@ -57,14 +54,34 @@ const DashBoard = (bugs) => {
   ];
   const bugParser = (bugsApiCall, type) => {
     console.log('Dashboard.js | bugParser: bugs are', bugsApiCall);
+    const high = [];
+    const medium = [];
+    const low = [];
 
     console.log('priority is', bugsApiCall[0]['priority']);
     console.log('type is', type);
-    const output = [];
     for (let i = 0; i < bugsApiCall.length; i++) {
       if (bugsApiCall[i]['priority'] == type) {
-        if (bugsApiCall[i]['status'] == 'open') {
-          output.push(
+        if (type === 'high') {
+          high.push(
+            TicketCard(
+              bugsApiCall[i]['title'],
+              bugsApiCall[i]['dueDate'].slice(5, 10),
+              bugsApiCall[i]['description'],
+              bugsApiCall[i]['updatedAt'].slice(5, 10)
+            )
+          );
+        } else if (type === 'medium') {
+          medium.push(
+            TicketCard(
+              bugsApiCall[i]['title'],
+              bugsApiCall[i]['dueDate'].slice(5, 10),
+              bugsApiCall[i]['description'],
+              bugsApiCall[i]['updatedAt'].slice(5, 10)
+            )
+          );
+        } else if (type === 'low') {
+          low.push(
             TicketCard(
               bugsApiCall[i]['title'],
               bugsApiCall[i]['dueDate'].slice(5, 10),
@@ -74,8 +91,21 @@ const DashBoard = (bugs) => {
           );
         }
       }
+      // we have details to input into ticket card
+      // bugid
+      // bug description
+      // bug status
+      // bug priority
+      // updated
+      // if priority == high, highBugs.push(ticket)
     }
-    return output;
+    const allBugs = {
+      high,
+      medium,
+      low,
+    };
+    // array of ticket cards
+    return allBugs[type];
   };
 
   return (

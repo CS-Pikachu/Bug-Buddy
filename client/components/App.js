@@ -18,9 +18,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('app mounted');
+    console.log('App.js: app mounted');
     this.props.fetchUser();
-    console.log(this.props);
+    this.props.fetchBugs();
+    console.log('App.js: props are', this.props);
   }
   render() {
     return (

@@ -47,6 +47,8 @@ module.exports = {
       '/api/*': 'http://localhost:3000',
       '/auth/google/callback': 'http://localhost:3000',
       '/api/current_user': 'http://localhost:3000',
+      '/checkdashboard': 'http://localhost:3000',
+      '/api/bugs': 'http://localhost:3000',
     },
     hot: true,
   },

@@ -10,13 +10,19 @@ module.exports = (app) => {
     })
   );
 
+  app.get('/checkdashboard', (req, res) => {
+    console.log('in check dash', req.user);
+    if (!req.user) res.redirect('/');
+    else res.redirect('/dashboard');
+  });
+
   app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
       console.log('req.user in callback is', req.user);
       console.log('at the google callback, sending to dashboard');
-      res.redirect('/dashboard');
+      res.redirect('/checkdashboard');
     }
   );
 
@@ -27,7 +33,11 @@ module.exports = (app) => {
   });
 
   app.get('/api/current_user', (req, res) => {
-    res.send(req.user);
+    console.log(req.user);
+    let user = { userid: req.user };
+    user = JSON.stringify(user);
+    console.log('user is now', user);
+    res.send(user);
   });
 
   // ! Github's authentication. All ready to play ball!
