@@ -9,6 +9,7 @@ import styles from './../public/bootstrap.css';
 // import Header from './Header';
 import LandingContainer from './LandingContainer.js';
 import DashBoard from './DashBoard.js';
+import PostBug from './PostBug.js';
 import NavBar from './NavBar.js';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
         <Container>
           <div>
             <NavBar />
+            <Route exact path="/createbug" component={PostBug}></Route>
             <Route exact path="/dashboard" component={DashBoard}></Route>
             <Route exact path="/" component={LandingContainer}></Route>
           </div>
