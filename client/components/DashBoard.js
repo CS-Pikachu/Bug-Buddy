@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as actions from '../actions'; // make sure to look at route;
 
 import TicketCard from './columns/TicketCard';
-
 import HighLabel from './labels/HighLabel';
 import MediumLabel from './labels/MediumLabel';
 import LowLabel from './labels/LowLabel';
 
 const DashBoard = (props) => {
   // use effect and get all fetchBugs
+
   useEffect(() => {
     props.fetchBugs();
     props.fetchComments();
     props.fetchAllUsers();
   }, []);
+
   console.log('Dashboard.js: props are', props);
   const renderBugs = (type) => {
     switch (props.bugs && props.comments && props.users) {
@@ -29,6 +30,7 @@ const DashBoard = (props) => {
         // console.log('priority is', bugsApiCall[0]['priority']);
         // console.log('type is', type);
         const output = [];
+
         for (let i = 0; i < props.bugs.length; i++) {
           if (props.bugs[i]['priority'] == type) {
             if (props.bugs[i]['status'] == 'open') {
@@ -54,11 +56,43 @@ const DashBoard = (props) => {
                   props.bugs[i]['updatedAt'].slice(5, 10),
                   commentDisplay,
                   ownerDisplay
-                )
+                ),
+                <div>
+                  <Container>
+                    <Row>
+                      <Col>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          className="left-side-button"
+                        >
+                          Edit
+                        </Button>
+                      </Col>
+                      <Col>
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          className="right-side-button"
+                          onClick={() => {
+                            props.updateBug({
+                              id: props.bugs[i]['id'],
+                              status: 'closed',
+                            });
+                            document.location.reload();
+                          }}
+                        >
+                          Done
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
               );
             }
           }
         }
+        console.log('this is the arrary of cards', output);
         return output;
       }
     }
@@ -92,7 +126,12 @@ const DashBoard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { bugs: state.bugs, comments: state.comments, users: state.users };
+  return {
+    bugs: state.bugs,
+    comments: state.comments,
+    users: state.users,
+    update: state.update,
+  };
 };
 
 export default connect(mapStateToProps, actions)(DashBoard);

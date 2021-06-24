@@ -5772,7 +5772,7 @@ button.close {
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 0.3rem;
   outline: 0;
 }
@@ -5789,10 +5789,11 @@ button.close {
 
 .modal-backdrop.fade {
   opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 .modal-backdrop.show {
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .modal-header {

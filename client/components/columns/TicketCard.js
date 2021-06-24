@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import {
-  Container,
-  Card,
-  Button,
-  Col,
-  Row,
-  ListGroup,
-  Accordion,
-} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Card, Button, Col, Row, Accordion } from 'react-bootstrap';
+
+import { connect } from 'react-redux';
+import * as actions from '../../actions'; // make sure to look at route;
 
 const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
+  console.log('inside ticket card', title);
+  const donehelper = (details) => {
+    // takes in a bugId
+    // creates an object with bug id and status:done
+    // calls the updateBug action creater
+  };
+
   switch (comment) {
     case '':
       return (
@@ -35,7 +37,7 @@ const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
               </Card>
             </Accordion>
 
-            <Container>
+            {/* <Container>
               <Row>
                 <Col>
                   <Button
@@ -56,7 +58,7 @@ const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
                   </Button>
                 </Col>
               </Row>
-            </Container>
+            </Container> */}
           </Card.Body>
           <Card.Footer>
             <Row>
@@ -110,7 +112,7 @@ const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
               </Card>
             </Accordion>
 
-            <Container>
+            {/* <Container>
               <Row>
                 <Col>
                   <Button
@@ -131,7 +133,7 @@ const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
                   </Button>
                 </Col>
               </Row>
-            </Container>
+            </Container> */}
           </Card.Body>
           <Card.Footer>
             <Row>
@@ -155,5 +157,12 @@ const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
       );
   }
 };
+
+// const mapStateToProps = (state) => {
+//   console.log('supsect a crash coming');
+//   return { update: state.update };
+// };
+
+// export default connect(mapStateToProps, actions)(TicketCard);
 
 export default TicketCard;
