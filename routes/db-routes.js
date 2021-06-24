@@ -8,7 +8,7 @@ const Router = require('express-promise-router');
 const router = new Router()
 
 // POST an user
-router.post('/user',
+router.post('/users',
     userController.createUser,
     (req, res) => res.status(201).json(res.locals.createdUser)
 );
@@ -20,13 +20,13 @@ router.get('/users',
 );
 
 // UPDATE a user
-router.post('/updateUser/:id',
+router.patch('/users/:id',
     userController.updateUser,
     (req, res) => res.status(201).json(res.locals.updatedUser)
 );
 
 // DELETE a user
-router.get('/deleteUser/:id',
+router.delete('/users/:id',
     userController.deleteUser,
     (req, res) => res.status(204).json(res.locals.deletedUser)
 );
@@ -38,19 +38,19 @@ router.get('/bugs',
 );
 
 // POST a new bug
-router.post('/newBug',
+router.post('/bugs',
     bugController.createBug,
     (req, res) => res.status(201).json(res.locals.newBug)
 );
 
 // DELETE a bug
-router.delete('/deleteBug/:id',
+router.delete('/bugs/:id',
     bugController.deleteBug,
     (req, res) => res.status(204).json(res.locals.deletedBug)
 );
 
 // UPDATE a bug
-router.post('/updateBug/:id',
+router.patch('/bugs/:id',
     bugController.updateBug,
     (req, res) => res.status(201).json(res.locals.updatedBug)
 );
@@ -62,13 +62,13 @@ router.get('/teams',
 );
 
 // POST a new Team
-router.post('/newTeam',
+router.post('/teams',
     teamController.createTeam,
     (req, res) => res.status(201).json(res.locals.createdTeam)
 );
 
 // UPDATE a Team - 
-router.post('/updateTeam/:id',
+router.patch('/teams/:id',
     teamController.updateTeam,
     (req, res) => res.status(201).json(res.locals.updatedTeam)
 );
@@ -80,13 +80,13 @@ router.get('/comments',
 );
 
 // POST a new Comment
-router.post('/newComment',
+router.post('/comments',
     commentController.createComment,
     (req, res) => res.status(201).json(res.locals.newComment)
 );
 
 // UPDATE a Comment - 
-router.post('/updateCom/:id',
+router.patch('/comments/:id',
     commentController.updateComment,
     (req, res) => res.status(201).json(res.locals.updatedComment)
 );
