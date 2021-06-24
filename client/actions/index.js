@@ -1,5 +1,7 @@
 import { FETCH_USER } from './types';
 import { FETCH_BUGS } from './types';
+import { FETCH_COMMENTS } from './types';
+import { FETCH_ALL_USERS } from './types';
 
 export const fetchUser = () => {
   return function (dispatch) {
@@ -7,7 +9,6 @@ export const fetchUser = () => {
     fetch('/api/current_user')
       .then((res) => res.json())
       .then((res) => {
-        // this res is req.user
         console.log('fetchUser Action: got a current user of ', res);
         dispatch({ type: FETCH_USER, payload: res.userid });
       });
@@ -20,9 +21,32 @@ export const fetchBugs = () => {
     fetch('/api/bugs')
       .then((res) => res.json())
       .then((res) => {
-        // this res is req.user
         console.log('fetchBugs Action: got bugs of ', res);
         dispatch({ type: FETCH_BUGS, payload: res });
+      });
+  };
+};
+
+export const fetchComments = () => {
+  return function (dispatch) {
+    console.log('fetchComments Action: inside of fetch comments Action');
+    fetch('/api/comments')
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('fetchComments Action: got comments of ', res);
+        dispatch({ type: FETCH_COMMENTS, payload: res });
+      });
+  };
+};
+
+export const fetchAllUsers = () => {
+  return function (dispatch) {
+    console.log('fetchAllUsers Action: inside of fetch all users Action');
+    fetch('/api/users')
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('fetchAllUsers Action: got users of ', res);
+        dispatch({ type: FETCH_ALL_USERS, payload: res });
       });
   };
 };

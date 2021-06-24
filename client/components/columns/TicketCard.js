@@ -9,7 +9,7 @@ import {
   Accordion,
 } from 'react-bootstrap';
 
-const TicketCard = (title, dueDate, description, updatedAt) => {
+const TicketCard = (title, dueDate, description, updatedAt, comment, owner) => {
   return (
     <Card className="mt-2">
       <Card.Header>
@@ -36,7 +36,7 @@ const TicketCard = (title, dueDate, description, updatedAt) => {
               Comments:
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="2">
-              <Card.Body>Chris: This is rubbish</Card.Body>
+              <Card.Body>{comment}</Card.Body>
             </Accordion.Collapse>
           </Card>
         </Accordion>
@@ -67,7 +67,7 @@ const TicketCard = (title, dueDate, description, updatedAt) => {
         </Row>
         <Row>
           <Col sm="7">
-            <small className="text-muted">Erik Matevosyan</small>
+            <small className="text-muted">{owner}</small>
           </Col>
           <Col>
             <small className="text-muted">{updatedAt}</small>
