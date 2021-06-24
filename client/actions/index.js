@@ -27,9 +27,3 @@ export const fetchBugs = () => {
   };
 };
 
-export const addBug = (bug) => {
-
-
-
-
-}
