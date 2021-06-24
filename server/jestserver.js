@@ -68,6 +68,23 @@ function ensureAuthenticated(req, res, next) {
     res.redirect('/');
 }
 
+// local error
+app.use((req, res) => {
+    res.status(404).send('Sorry can\'t find that resource');
+});
+
+// global error handler
+app.use((err, req, res, next) => {
+    // console.log(err);
+    const defaultErr = {
+        log: 'Express error handler caught unknown middleware error',
+        status: 400,
+        message: { err: 'An error occured in the server' }
+    };
+    const errorObj = Object.assign({}, defaultErr, err);
+    // console.log(errorObj.log);
+    res.status(errorObj.status).send(errorObj.message);
+});
 
 
 module.exports = app;
