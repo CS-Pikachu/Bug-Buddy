@@ -14,7 +14,7 @@ const keys = require('../config/keys');
 const routes = require('./routes/routes');
 const router = require('../routes/db-routes');
 
-const port = 3000;
+const port = 80;
 
 const app = express();
 app.use(express.json());
