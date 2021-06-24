@@ -20,7 +20,6 @@ class App extends Component {
   componentDidMount() {
     console.log('App.js: app mounted');
     this.props.fetchUser();
-    this.props.fetchBugs();
     console.log('App.js: props are', this.props);
   }
   render() {
