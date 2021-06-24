@@ -98,7 +98,6 @@ router.post('/updateCom/:id',
 //     password: "secret",
 //     isAdmin: true,
 // }
-
 // // testing
 // router.get('/testing', async (req, res) => {
 //     const user = await User.create(john)
@@ -111,6 +110,4 @@ router.post('/updateCom/:id',
 //     console.log(message)
 //     // console.log(Team)
 // });
-
-
 module.exports = router
