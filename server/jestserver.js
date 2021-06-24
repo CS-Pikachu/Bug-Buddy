@@ -33,17 +33,17 @@ app.use(passport.session());
 routes(app);
 app.use('/api', router);
 
-
 app.use(express.static(path.resolve(__dirname, '../client/assets/')));
 app.use(express.static('client/public'));
 
 app.get('/auth', authController.checkCookie, function (req, res) {
-    res.status(200).redirect('/dashboard')
+    console.log('auth route was hit');
+    res.status(200).redirect('/dashboard');
 });
 
-
 // app.get('/dashboard', ensureAuthenticated, function (req, res) {
-//     res.render('account', { user: req.user });
+//   console.log('req is', req);
+//   res.render('account', { user: req.user });
 // });
 
 // console.log('node-ENV is', process.env.NODE_ENV);
@@ -56,17 +56,35 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-
-
-
 /* Simple route middleware to ensure user is authenticated.
   Use this route middleware on any resource that needs to be protected.  If
   the request is authenticated (typically via a persistent login session),
   the request will proceed.  Otherwise, the user will be redirected to the
   login page. */
 function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/')
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
 }
+
+// local error
+app.use((req, res) => {
+    res.status(404).send('Sorry can\'t find that resource');
+});
+
+// global error handler
+app.use((err, req, res, next) => {
+    // console.log(err);
+    const defaultErr = {
+        log: 'Express error handler caught unknown middleware error',
+        status: 400,
+        message: { err: 'An error occured in the server' }
+    };
+    const errorObj = Object.assign({}, defaultErr, err);
+    // console.log(errorObj.log);
+    res.status(errorObj.status).send(errorObj.message);
+});
+
 
 module.exports = app;

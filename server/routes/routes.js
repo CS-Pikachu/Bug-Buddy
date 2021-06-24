@@ -11,7 +11,7 @@ module.exports = (app) => {
   );
 
   app.get('/checkdashboard', (req, res) => {
-    console.log('in check dash', req.user);
+    // console.log('in check dash', req.user);
     if (!req.user) res.redirect('/');
     else res.redirect('/dashboard');
   });
@@ -20,8 +20,8 @@ module.exports = (app) => {
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      console.log('req.user in callback is', req.user);
-      console.log('at the google callback, sending to dashboard');
+      // console.log('req.user in callback is', req.user);
+      // console.log('at the google callback, sending to dashboard');
       res.redirect('/checkdashboard');
     }
   );
@@ -33,10 +33,10 @@ module.exports = (app) => {
   });
 
   app.get('/api/current_user', (req, res) => {
-    console.log(req.user);
+    // console.log(req.user);
     let user = { userid: req.user };
     user = JSON.stringify(user);
-    console.log('user is now', user);
+    // console.log('user is now', user);
     res.send(user);
   });
 
@@ -59,7 +59,7 @@ module.exports = (app) => {
     '/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/' }),
     function (req, res) {
-      console.log('at the github callback, sending to dashboard');
+      // console.log('at the github callback, sending to dashboard');
       res.redirect('/dashboard');
     }
   );

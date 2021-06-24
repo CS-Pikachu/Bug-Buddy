@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 // saves session data on the client within a cookie (rather than session identifer and data in a DB)
 const cookieSession = require('cookie-session');
 // middleware to help with authentication
@@ -46,7 +47,7 @@ app.get('/auth', authController.checkCookie, function (req, res) {
 //   res.render('account', { user: req.user });
 // });
 
-// console.log('node-ENV is', process.env.NODE_ENV);
+console.log('node-ENV is', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   app.get('/', (req, res) => {
@@ -67,6 +68,24 @@ function ensureAuthenticated(req, res, next) {
   }
   res.redirect('/');
 }
+
+// local error
+app.use((req, res) => {
+  res.status(404).send('Sorry can\'t find that resource');
+});
+
+// global error handler
+app.use((err, req, res, next) => {
+  // console.log(err);
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 400,
+    message: { err: 'An error occured in the server' }
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  // console.log(errorObj.log);
+  res.status(errorObj.status).send(errorObj.message);
+});
 
 sequelize.sync().then(() => {
   console.log('Connection to the Database was succesful.');

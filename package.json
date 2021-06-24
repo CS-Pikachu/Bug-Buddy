@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "start": "NODE_ENV=production nodemon server/server.js",
+    "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build:deploy": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=production node server/server.js",
     "kill-bug": "npm run index.js",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\""
   },
@@ -24,6 +26,7 @@
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
     "eslint": "^7.29.0",
     "express": "^4.17.1",
