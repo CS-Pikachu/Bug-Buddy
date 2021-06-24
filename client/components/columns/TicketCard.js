@@ -16,7 +16,7 @@ const TicketCard = (title, dueDate, description, updatedAt) => {
         <Card.Title style={{ color: '4e73df' }}>{title}</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Accordion defaultActiveKey="1">
+        <Accordion defaultActiveKey="3">
           <Card>
             <Card.Header>
               <span className="left-side">Due:</span>
